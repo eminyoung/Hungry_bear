@@ -185,7 +185,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Good_Fish_0: 3780846462319741994
+      Good_Fish_1: 7617796605599058187
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
