@@ -3,16 +3,19 @@ using UnityEngine;
 
 public class FishSpawner : MonoBehaviour
 {
-    public GameObject fishPrefab;
+    public GameObject goodFish;
+    public GameObject badFish;
     public Transform target;
 
     private float randomSpawnTimer;
     private float randomSpawnInterval;
+    private GameObject fishPrefab;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine(SpawnFish());
+        fishPrefab = Random.value > 0.5f ? goodFish : badFish;
     }
 
     void Update()

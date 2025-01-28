@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1057272589319632316}
   - component: {fileID: 8927707160738656314}
   - component: {fileID: 7563972901308306498}
-  - component: {fileID: -472847501759272110}
   - component: {fileID: -1551393848847893879}
+  - component: {fileID: 2512369892928731662}
   m_Layer: 0
   m_Name: Good Fish
   m_TagString: GoodFish
@@ -117,27 +117,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-472847501759272110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4361534396554442994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9548b8ec50aa1054ca3715772e49d693, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fishSprites: []
-  rb: {fileID: 7563972901308306498}
-  gravity: -9.8
-  jumpStrength: 0
-  swimSpeed: 10
-  jumping: 0
-  maxHeight: 10
-  swimHeight: -1.5
-  bear: {fileID: 0}
 --- !u!61 &-1551393848847893879
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -184,3 +163,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.56, y: 3.09}
   m_EdgeRadius: 0
+--- !u!114 &2512369892928731662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4361534396554442994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9548b8ec50aa1054ca3715772e49d693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishSprites:
+  - {fileID: 3780846462319741994, guid: 4e61ee14f06064abdb031c59f1b2f8ae, type: 3}
+  - {fileID: 7617796605599058187, guid: 4e61ee14f06064abdb031c59f1b2f8ae, type: 3}
+  jumpStrength: 0
+  swimSpeed: 10
+  jumping: 0
+  deadZone: -45
+  hasJumped: 0
+  swimHeight: 0
+  bear: {fileID: 0}

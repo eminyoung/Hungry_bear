@@ -14,6 +14,7 @@ public class Fish : MonoBehaviour
     public float jumpStrength;
     public float swimSpeed = 10.0f;
     public bool jumping;
+    public float deadZone = -45;
     public bool hasJumped;
     public float swimHeight;
 
@@ -53,6 +54,9 @@ public class Fish : MonoBehaviour
             transform.position = new Vector3(transform.position.x, swimHeight, transform.position.z);
             jumping = false;
         }
+        if (transform.position.x <= deadZone) {
+            Destroy(gameObject);
+        }
     }
 
     private void Animate()
@@ -64,5 +68,16 @@ public class Fish : MonoBehaviour
         }
         
         spriteRenderer.sprite = fishSprites[spriteIndex];
+    }
+
+    void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Player") {
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+
+            if(player != null && player.getMouth() == 1) {
+                Destroy(gameObject);
+                Debug.Log("collided");
+            }
+        }
     }
 }
