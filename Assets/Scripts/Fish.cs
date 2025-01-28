@@ -60,6 +60,10 @@ public class Fish : MonoBehaviour
         }
     }
 
+    public void OnBecameInvisible() {
+	    Destroy(gameObject);
+    }   
+
     private void Animate()
     {
         spriteIndex++;
