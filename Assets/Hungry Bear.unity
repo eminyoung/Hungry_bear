@@ -361,7 +361,7 @@ Transform:
   m_GameObject: {fileID: 539460426}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.8226, y: -2.5, z: 0}
+  m_LocalPosition: {x: 5, y: -4, z: 0}
   m_LocalScale: {x: 2.266, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -448,7 +448,7 @@ Transform:
   m_GameObject: {fileID: 605096553}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0179, y: -3.19, z: 0}
+  m_LocalPosition: {x: -0.34, y: -4.19, z: 0}
   m_LocalScale: {x: 1.06084, y: 1.0038, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -535,8 +535,8 @@ Transform:
   m_GameObject: {fileID: 1907545240}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.94, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -584,7 +584,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4693792977596894205, guid: e02f06e6ab75244f2b2b5b213283883a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -631,12 +631,10 @@ MonoBehaviour:
   fishSprites:
   - {fileID: 3780846462319741994, guid: 4e61ee14f06064abdb031c59f1b2f8ae, type: 3}
   - {fileID: 7617796605599058187, guid: 4e61ee14f06064abdb031c59f1b2f8ae, type: 3}
-  rb: {fileID: 1981637013}
-  gravity: -9.8
   jumpStrength: 0
   swimSpeed: 5
   jumping: 0
-  maxHeight: 10
+  hasJumped: 0
   swimHeight: -1.5
   bear: {fileID: 1907545241}
 --- !u!58 &1981637012
@@ -711,7 +709,7 @@ Transform:
   m_GameObject: {fileID: 1981637010}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14, y: -1.5, z: 0}
+  m_LocalPosition: {x: 14, y: -3, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
