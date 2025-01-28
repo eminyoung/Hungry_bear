@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class Fish : MonoBehaviour
@@ -9,14 +10,12 @@ public class Fish : MonoBehaviour
     private int spriteIndex;
     public Sprite[] fishSprites;
 
-    public Rigidbody2D rb;
-    private Vector3 direction;
-    public float gravity = -9.8f;
+    private Rigidbody2D rb;
     public float jumpStrength;
     public float swimSpeed = 10.0f;
     public bool jumping;
-    public float maxHeight = 10.0f;
-    public float swimHeight = -1.5f;
+    public bool hasJumped;
+    public float swimHeight;
 
     public Transform bear;
 
@@ -28,8 +27,11 @@ public class Fish : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         jumping = false;
-        jumpStrength = Random.Range(2.5f, 7.5f);
+        hasJumped = false;
+        jumpStrength = Random.Range(7.5f, 11.5f);
+        swimHeight = transform.position.y;
         rb.gravityScale = 0.0f;
         InvokeRepeating(nameof(Animate), 0.3f, 0.3f);
     }
@@ -40,16 +42,15 @@ public class Fish : MonoBehaviour
         float distanceToBear = transform.position.x - bear.position.x;
         transform.position += Vector3.left * (swimSpeed * Time.deltaTime);
 
-        if (distanceToBear <= 5.0f && !jumping)
+        if (distanceToBear <= 5.0f && !jumping && !hasJumped)
         {
             jumping = true;
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpStrength, ForceMode2D.Impulse);
+            hasJumped = true;
+            rb.AddForce(Vector2.up * jumpStrength, ForceMode2D.Impulse);
             rb.gravityScale = 1.0f;
-        }
-        
-        if (jumping && rb.position.y <= swimHeight)
+        } else if (rb.position.y <= swimHeight)
         {
-            rb.gravityScale = 0;
+            transform.position = new Vector3(transform.position.x, swimHeight, transform.position.z);
             jumping = false;
         }
     }
