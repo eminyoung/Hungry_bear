@@ -3,11 +3,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private int openMouth;
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     public Sprite[] sprites;
 
-    private void Awake() {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+    public GameObject Bear;
+
+    private void Start() {
+        SpriteRenderer spriteRenderer = Bear.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -25,4 +27,5 @@ public class PlayerController : MonoBehaviour
     public int getMouth() {
         return openMouth;
     }
+    void OnDisable(){ Debug.Log("disabled");}
 }
