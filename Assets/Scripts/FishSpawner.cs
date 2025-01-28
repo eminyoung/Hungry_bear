@@ -7,7 +7,7 @@ public class FishSpawner : MonoBehaviour
     [SerializeField] private GameObject badProjectile;
     [SerializeField] private float spawnRate;
     [SerializeField] private float timer = 0;
-    [SerializeField] private float heightOffset = 3;
+    [SerializeField] private float heightOffset = 2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +22,7 @@ public class FishSpawner : MonoBehaviour
         } else {
             spawnFish();
             timer = 0;
+            spawnRate = Random.Range(0.3f,0.9f);
         }
     }
 
