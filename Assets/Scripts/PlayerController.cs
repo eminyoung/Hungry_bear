@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public Sprite[] sprites;
 
     public Vector3 direction;
-    bool isGrounded = true;
+    // bool isGrounded = true;
 
 
     public GameObject Bear;
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow)) {
+        if (Input.GetKey(KeyCode.Space)) {
             openMouth = 1;
             Debug.Log("mouth open");
         } else {
@@ -38,9 +38,13 @@ public class PlayerController : MonoBehaviour
             direction.y = 0;
         }
 
-        if (Input.GetKey(KeyCode.Space) && body.position.y <= 0.06) {
-            direction.y += 7;
-        }
+        // if (Input.GetKey(KeyCode.UpArrow) && body.position.y <= 0.06) {
+        //     direction.y += 7;
+        //     if (body.position.y <= 0) {
+        //         rb.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
+        //     }
+        // }
+        
         transform.position += direction * Time.deltaTime;
     }
 

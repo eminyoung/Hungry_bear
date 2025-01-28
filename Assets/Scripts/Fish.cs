@@ -19,7 +19,6 @@ public class Fish : MonoBehaviour
     public float swimHeight;
 
     private Transform bear;
-
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
