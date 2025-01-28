@@ -6,16 +6,15 @@ public class FishSpawner : MonoBehaviour
     public GameObject goodFish;
     public GameObject badFish;
     public Transform target;
+    private GameObject fishPrefab;
 
     private float randomSpawnTimer;
     private float randomSpawnInterval;
-    private GameObject fishPrefab;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine(SpawnFish());
-        fishPrefab = Random.value > 0.5f ? goodFish : badFish;
     }
 
     void Update()
@@ -31,6 +30,8 @@ public class FishSpawner : MonoBehaviour
 
     private IEnumerator SpawnFish()
     {
+        fishPrefab = Random.value > 0.5f ? goodFish : badFish;
+
         while (true)
         {
             GameObject spawnLocation = (GameObject)Instantiate(fishPrefab, target.position, Quaternion.identity);

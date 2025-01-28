@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5239339043306867411}
   - component: {fileID: 2230708655414281068}
-  - component: {fileID: 4407596456429308341}
   - component: {fileID: 136924913180555940}
   - component: {fileID: 3273814374571143430}
+  - component: {fileID: -5024116217850883132}
   m_Layer: 0
   m_Name: Bad Fish
   m_TagString: BadFish
@@ -90,28 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4407596456429308341
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4187295048371161644}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 589d76a080a3747eaa50491e52457fa6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &136924913180555940
 Rigidbody2D:
   serializedVersion: 5
@@ -185,3 +163,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.83, y: 3.04}
   m_EdgeRadius: 0
+--- !u!114 &-5024116217850883132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4187295048371161644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9548b8ec50aa1054ca3715772e49d693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishSprites:
+  - {fileID: -7244831867679493874, guid: bc0be166891d746c3b23c8f9287f694f, type: 3}
+  - {fileID: 6576914064093756376, guid: bc0be166891d746c3b23c8f9287f694f, type: 3}
+  jumpStrength: 0
+  swimSpeed: 10
+  jumping: 0
+  deadZone: -45
+  hasJumped: 0
+  swimHeight: 0

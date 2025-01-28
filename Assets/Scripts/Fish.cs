@@ -18,7 +18,7 @@ public class Fish : MonoBehaviour
     public bool hasJumped;
     public float swimHeight;
 
-    public Transform bear;
+    private Transform bear;
 
     private void Awake()
     {
@@ -35,6 +35,7 @@ public class Fish : MonoBehaviour
         swimHeight = transform.position.y;
         rb.gravityScale = 0.0f;
         InvokeRepeating(nameof(Animate), 0.3f, 0.3f);
+        bear = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
