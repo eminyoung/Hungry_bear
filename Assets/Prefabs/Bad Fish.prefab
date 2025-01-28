@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 12
-  m_Sprite: {fileID: -7244831867679493874, guid: 806efe586615b40e3b3c4c75f5dcd840, type: 3}
+  m_Sprite: {fileID: -7244831867679493874, guid: bc0be166891d746c3b23c8f9287f694f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,18 +100,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4187295048371161644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7f6f98639c4a49adb6792fcfc3e3105, type: 3}
+  m_Script: {fileID: 11500000, guid: 9548b8ec50aa1054ca3715772e49d693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  deadZone: -10
-  launchPoint: 6.4
+  fishSprites: []
+  rb: {fileID: 0}
   gravity: -9.8
   jumpStrength: 0
   swimSpeed: 10
   jumping: 0
   maxHeight: 10
   swimHeight: -1.5
+  bear: {fileID: 0}
 --- !u!95 &4407596456429308341
 Animator:
   serializedVersion: 7

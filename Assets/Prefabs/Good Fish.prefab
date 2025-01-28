@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 3780846462319741994, guid: 2ef3aad31bc714741bc1dab31db74b59, type: 3}
+  m_Sprite: {fileID: 3780846462319741994, guid: 4e61ee14f06064abdb031c59f1b2f8ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,9 +126,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4361534396554442994}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6da4922817f5d41a1aec9af62f8cc940, type: 2}
+  m_Controller: {fileID: 9100000, guid: 66773a89912004be1a768983b6905774, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -149,18 +149,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4361534396554442994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7f6f98639c4a49adb6792fcfc3e3105, type: 3}
+  m_Script: {fileID: 11500000, guid: 9548b8ec50aa1054ca3715772e49d693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  deadZone: -10
-  launchPoint: 6.4
-  gravity: -67.46
-  jumpStrength: -2.25
-  swimSpeed: 6.88
+  fishSprites: []
+  rb: {fileID: 7563972901308306498}
+  gravity: -9.8
+  jumpStrength: 0
+  swimSpeed: 10
   jumping: 0
-  maxHeight: -8.25
-  swimHeight: -0.41
+  maxHeight: 10
+  swimHeight: -1.5
+  bear: {fileID: 0}
 --- !u!61 &-1551393848847893879
 BoxCollider2D:
   m_ObjectHideFlags: 0
