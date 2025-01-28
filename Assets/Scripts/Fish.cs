@@ -9,45 +9,48 @@ public class Fish : MonoBehaviour
     private int spriteIndex;
     public Sprite[] fishSprites;
 
-    private Vector3 horizontalVec;
-    private Vector3 verticalVec;
+    public Rigidbody2D rb;
+    private Vector3 direction;
     public float gravity = -9.8f;
     public float jumpStrength;
     public float swimSpeed = 10.0f;
-    public bool hasJumped = false;
+    public bool jumping;
+    public float maxHeight = 10.0f;
+    public float swimHeight = -1.5f;
+
     public Transform bear;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        horizontalVec = Vector3.left * swimSpeed;
-        verticalVec = Vector3.zero;
+        jumping = false;
+        jumpStrength = Random.Range(2.5f, 7.5f);
+        rb.gravityScale = 0.0f;
         InvokeRepeating(nameof(Animate), 0.3f, 0.3f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        float distanceToBear = transform.position.x - bear.position.x;
+        transform.position += Vector3.left * (swimSpeed * Time.deltaTime);
+
+        if (distanceToBear <= 5.0f && !jumping)
+        {
+            jumping = true;
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpStrength, ForceMode2D.Impulse);
+            rb.gravityScale = 1.0f;
+        }
         
-        float distanceToBear = Mathf.Abs(transform.position.x - bear.position.x);
-        transform.position += horizontalVec * Time.deltaTime;
-        if (distanceToBear <= 0.5f && !hasJumped)
+        if (jumping && rb.position.y <= swimHeight)
         {
-            jumpStrength = Random.Range(15.0f, 20.0f);
-            verticalVec = Vector3.up * jumpStrength;
-            hasJumped = true;
-        } else if (hasJumped && transform.position.y > -1.5f)
-        {
-            verticalVec.y += gravity * Time.deltaTime;
-            transform.position += verticalVec * Time.deltaTime;
-        } else
-        {
-            transform.position = new Vector3(transform.position.x, -1.5f, transform.position.z);
+            rb.gravityScale = 0;
+            jumping = false;
         }
     }
 
