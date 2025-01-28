@@ -31,7 +31,7 @@ public class Fish : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         jumping = false;
         hasJumped = false;
-        jumpStrength = Random.Range(7.5f, 11.5f);
+        jumpStrength = Random.Range(7.5f, 11.5f) + 3;
         swimHeight = transform.position.y;
         rb.gravityScale = 0.0f;
         InvokeRepeating(nameof(Animate), 0.3f, 0.3f);
@@ -44,7 +44,7 @@ public class Fish : MonoBehaviour
         float distanceToBear = transform.position.x - bear.position.x;
         transform.position += Vector3.left * (swimSpeed * Time.deltaTime);
 
-        if (distanceToBear <= 5.0f && !jumping && !hasJumped)
+        if (distanceToBear <= 5.5f && !jumping && !hasJumped)
         {
             jumping = true;
             hasJumped = true;
