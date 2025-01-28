@@ -2,37 +2,34 @@ using System.Collections;
 using UnityEngine;
 
 public class FishSpawner : MonoBehaviour
-{
-    public GameObject fishPrefab;
-    public Transform target;
-
-    private float randomSpawnTimer;
-    private float randomSpawnInterval;
-    
+{    
+    [SerializeField] private GameObject goodProjectile;
+    [SerializeField] private GameObject badProjectile;
+    [SerializeField] private float spawnRate;
+    [SerializeField] private float timer = 0;
+    [SerializeField] private float heightOffset = 3;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        StartCoroutine(SpawnFish());
+        spawnFish();
     }
 
+    // Update is called once per frame
     void Update()
     {
-        randomSpawnTimer -= Time.deltaTime;
-
-        if (randomSpawnTimer <= 0)
-        {
-            randomSpawnTimer = randomSpawnInterval;
-            Instantiate(fishPrefab, transform.position, Quaternion.identity);
+        if (timer < spawnRate) {
+            timer = timer + Time.deltaTime;
+        } else {
+            spawnFish();
+            timer = 0;
         }
     }
 
-    private IEnumerator SpawnFish()
-    {
-        while (true)
-        {
-            GameObject spawnLocation = (GameObject)Instantiate(fishPrefab, target.position, Quaternion.identity);
-            float delay = Random.Range(2.0f, 8.0f);
-            yield return new WaitForSeconds(delay);
-        }
+    void spawnFish() {
+        float lowestPoint = transform.position.y - heightOffset;
+        float highestPoint = transform.position.y + heightOffset;
+        GameObject projectilePrefab = Random.value > 0.7f ? goodProjectile : badProjectile;
+
+        GameObject newFish = Instantiate(projectilePrefab, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
     }
 }
